@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root{
+    --primaria: #C8B6A6;
+    --secundaria:#A47551;
+    --escuro: #3B2E28;
+    --maisEscuro:#231A15;
+    --claro: #f7f7f7;
+    --vidro: rgba(255, 255, 255, 0.1);
+
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--maisEscuro);    
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: var(--claro);
+}
+
+
+.navegacao {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+
+.menu{
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    justify-content: center;
+}
+.menu-link{
+    text-decoration: none;
+    color: var(--primaria);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5 rem 0;
+    
+}
+
+.menu-link::after{
+    content: "";
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(100deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after{
+    width: 100%;
+}
+
+
+/* ------------------------------------------------------------
+---------------------------------------------------------------
+
+            INICIO
+
+---------------------------------------------------------------
+------------------------------------------------------------ */
+
+.fixo {
+    width: 100vh;
+    height: 100vh;
+    background-color: var(--maisEscuro);
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll{
+    width: 100%;
+    height: 100vh; /* Faz a div ter altura da tela */
+    background-color: var(--claro);
+    color: var(--escuro);
+    padding: 20px;
+}
+
+.corpo1{
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;
+    width: 100%;
+}
+
+
+
+.cabecalho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.gs{
+    display: flex;
+    justify-content: center;
+}
+
+.logo-gs{
+    height: 50vh;
+    width: 50vh;
+}
+
+
+.primeira-info{
+    text-align: center;
+    justify-content: center;
+    margin-top: 6vh;
+
+}
+
+.primeira-info-paragrafo{
+    font-size: 22px;
+    
+}
+
+.segunda-info{
+    text-align: center;
+    width: 100%;
+    max-width: 75vh;
+    margin-top: 2vh;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+
+}
+
+.minha-foto{
+    width: 300px;
+    height: 300px;
+    box-shadow: 0 0 20px rgba(243, 139, 3, 0.925);
+    border-radius: 50px;
+    border: 4px var(--vidro);
+    margin-bottom: 8vh;
+}
+
+
+/* ------------------------------------------------------------
+---------------------------------------------------------------
+
+            SOBRE
+
+---------------------------------------------------------------
+------------------------------------------------------------ */
+
+
+.sobre{
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 100vh;
+    flex-direction: column;
+}
+
+.sobre-titulo{
+    padding-bottom: 20px;
+}
+
+.sobre-caixa{
+    max-width: 70%;
+    font-size: 2px;
+    
+}
+
+.sobre-paragrafo{
+    display: flex;
+    justify-content: center;
+    font-size: 2vh;
+}
+
+/* ------------------------------------------------------------
+---------------------------------------------------------------
+
+            TECNOLOGIAS
+
+---------------------------------------------------------------
+------------------------------------------------------------ */
+
+
+.slider-container {
+    width: 100%;
+    height: 100px;
+    background: #252220;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #35322f;
+    border-bottom: 1px solid #35322f;
+    margin-bottom: 10vh;
+    margin-top: 7vh;
+}
+
+/* Efeito de sombra/desfoque nas laterais */
+.slider-container::before, 
+.slider-container::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.slider-container::before {
+    left: 0;
+    background: linear-gradient(to right, #1a1a1a, transparent);
+}
+
+.slider-container::after {
+    right: 0;
+    background: linear-gradient(to left, #1a1a1a, transparent);
+}
+
+/* A trilha que move os logos */
+.slider-track {
+    display: flex;
+    width: max-content; /* Força os logos a ficarem em uma linha infinita */
+    animation: scroll 25s linear infinite;
+}
+
+.slide {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.slide img {
+    height: 50px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.slide img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Animação do carrossel */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Pausa ao passar o mouse */
+.slider-container:hover .slider-track {
+    animation-play-state: paused;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .slide { padding: 0 25px; }
+    .slide img { height: 35px; }
+    .slider-container { height: 90px; }
+}
+
+/* ------------------------------------------------------------
+---------------------------------------------------------------
+
+            PROJETOS
+
+---------------------------------------------------------------
+------------------------------------------------------------ */
+
+
+.projetos{
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    flex-direction: column;
+    margin-bottom: 20vh;
+    height: 100vh;
+    background-color: var(--claro);
+}
+
+.texto-projetos{
+    margin-bottom: 25px;
+}
+
+
+.projetos-caixa{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+.projeto-card{
+    width: 50vh;
+    height: 75vh;
+    padding: 16px;
+    transition: 0.5s;
+}
+
+.projeto-card:hover{
+    transform: scale(1.02);
+}
+
+.imagem-restaurante{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 20px rgba(169, 166, 218, 0.3);
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+
+.imagem-restaurante:hover{
+    transform: scale(1.06);
+}
+
+.imagem-geradorIA{
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 20px rgba(169, 166, 218, 0.3);
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+
+.imagem-geradorIA:hover{
+    transform: scale(1.06);
+}
+
+.projeto-texto{
+    text-align: center;
+    color: var(--escuro);
+    margin-top: 25px;
+}
+
+
+/* ------------------------------------------------------------
+---------------------------------------------------------------
+
+            CONTATOS
+
+---------------------------------------------------------------
+------------------------------------------------------------ */
+
+
+.contato{
+    padding: 6rem 2rem;   
+    height: 75vh;
+}
+.contatos-titulo{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primaria);
+}
+
+.formulario-contato{
+    max-width: 75vh;
+    margin: 0 auto;
+    background-color: var(--escuro);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+}
+
+.campo-form{
+    width: 100%;
+    padding: 1rem;
+    background:  var(--primaria);
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    border-radius: 14px;
+    outline: none;
+
+}
+
+.campo-form:focus{
+    border-color: rgba(180, 125, 24, 0.9);
+    box-shadow: 0 0 10px rgba(63, 51, 10, 0.2);
+}
+
+.grupo-form{
+    margin-bottom: 1.5rem;
+}
+
+.botao-form{
+    color: var(--claro);
+    background: linear-gradient(45deg,var(--primaria), var(--secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5 ease;
+}
+
+.botao-form:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--escuro);
+}
+
+/* ------------------------------------------------------------
+---------------------------------------------------------------
+
+            rodapé
+
+---------------------------------------------------------------
+------------------------------------------------------------ */
+
+.rodape{
+    flex-direction: column;
+    text-align: center;
+    padding: 4vh;
+    border-radius: 16px;
+    gap: 20px;
+    text-align: center;
+}
+
+.redes-titulo{
+    font-size: medium;
+}
+
+.redes{
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 16px;
+    gap: 20px;
+}
+
+.github{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.instagram{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.linkedin{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.img-redes{
+    background-color: var(--claro);
+    height: 5vh;
+    width: 5vh;
+    justify-content: center;
+    border-radius: 50px;
+}

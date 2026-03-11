@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet">
+        <title>Portfólio</title>
+    </head>
+
+    <body>
+        <nav class="navegacao">
+            <ul class="menu">
+
+                <li>
+                    <a href="#inicio" class="menu-link">Início</a>
+                </li>
+                <li>
+                    <a href="#sobre" class="menu-link">Sobre</a>
+                </li>
+                <li>
+                    <a href="#projetos" class="menu-link">Projetos</a>
+                </li>
+                <li>
+                    <a href="#contato" class="menu-link">Contato</a>
+                </li>
+            </ul>
+        
+        </nav>
+
+
+                <div class="corpo1">
+                    <main id="inicio" class="cabecalho">
+                        <div class="grupo-primeira-info">
+                            <img src="imagens/logo/logo-gs.png" class="logo-gs" />
+                            <div class="primeira-info">
+                                <h1>Gabriel da Silva Cruz</h1>
+                                <p class="primeira-info-paragrafo">Desenvolvedor Front End</p>
+                            </div>
+                        </div>
+                        <div class="segunda-info">
+                            <p class="segunda-info-paragrafo"> Não desenvolvo apenas interfaces — transformo ideias em experiências
+                            digitais que ganham vida na tela, conectam pessoas e deixam uma impressão que vai além do primeiro
+                            clique. </p>
+                        </div>
+                    </main>
+                </div>   
+            <div class="scroll">
+                <section id="sobre" class="sobre">
+                    <img src="imagens/Gabriel.jpg" class="minha-foto" />
+                    <h2 class="sobre-titulo">Sobre mim</h2>
+                    <div class="sobre-caixa">
+                        <p class="sobre-paragrafo">
+                            Sou desenvolvedor Front-End com foco na criação de interfaces modernas, responsivas e funcionais.
+                            Tenho
+                            conhecimento em HTML, CSS e JavaScript, construindo aplicações web organizadas, acessíveis e com boa
+                            experiência para o usuário. Busco sempre aplicar boas práticas de desenvolvimento, código limpo e
+                            atenção aos detalhes visuais.
+                            <br>
+                            <br>
+
+                            Possuo familiaridade com React, explorando a criação de componentes reutilizáveis e interfaces
+                            dinâmicas, além de compreender conceitos como estados, props e organização de projetos. Estou
+                            constantemente aprimorando minhas habilidades e acompanhando as tendências do ecossistema front-end.
+                            <br>
+                            <br>
+
+                            Acredito que uma boa interface vai além do design — ela conecta pessoas à tecnologia de forma
+                            intuitiva
+                            e eficiente. Estou em busca de oportunidades para colaborar, evoluir profissionalmente e contribuir
+                            com
+                            projetos inovadores.
+                            <br>
+                            <br>
+
+                            Será um prazer desenvolver soluções criativas e impactantes junto à sua equipe. 🚀
+                        </p>
+                    </div>
+                </section>
+
+
+                <!--
+                        Tecnologias que utilizo
+                -->
+
+                <section class="carrocel">
+                    <div class="slider-container">
+                        <div class="slider-track" id="track">
+                            <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"></div>
+                            <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"></div>
+                            <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"></div>
+                            <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></div>
+                            <div class="slide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="git"></div>         
+                        </div>
+                    </div>
+                </section>
+
+                <script>
+                    // Seleciona a track e duplica o conteúdo interno
+                    const track = document.getElementById('track');
+                    track.innerHTML += track.innerHTML += track.innerHTML += track.innerHTML += track.innerHTML += track.innerHTML;
+                </script>
+
+                <!-- Projetos-->
+
+                <section id="projetos" class="projetos">
+                    <h2 class="texto-projetos">Meus projetos</h2>
+
+                    <div class="projetos-caixa">
+
+                <!-- CSS Gerador com IA-->
+
+                        <div class="projeto-card">
+                            <a target="_blank" href="/projetos/css gerador/geradorIA.html" class="projeto-geradorIA">
+                                <img src="/imagens/projetos/geradorIA.png" alt="foto do site do CSS Gerador com IA" class="imagem-geradorIA">
+                                <h3 class="projeto-texto">CSS Gerador com IA </h3>
+                            </a>
+                        </div>
+
+                <!-- Restaurante -->
+
+                        <div class="projeto-card">
+                            <a target="_blank" href="/projetos/restaurante/restaurante.html" class="projeto-restaurante">
+                                <img src="/imagens/projetos/restaurante.png" alt="foto do site do restaurante" class="imagem-restaurante">
+                                <h3 class="projeto-texto">Restaurante/Mercado</h3>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contatos -->
+
+                <section id="contato" class="contato">
+                    <h2 class="contatos-titulo">Entre em Contato</h2>
+                    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+                        <div class="grupo-form">
+                            <input placeholder="Nome" class="campo-form" id="nome">
+                        </div>
+                        <div class="grupo-form">
+                            <textarea class="campo-form" placeholder="Digite sua Mensagem" id="mensagem" rows="6"></textarea>
+                        </div>
+                        <button type="submit" class="botao-form">Enviar WhatsApp</button>
+                    </form>
+                </section>
+                <script>
+                    function enviarWhats(event){
+                        event.preventDefault()
+
+                    const nome = document.getElementById('nome').value;
+                    const mensagem = document.getElementById('mensagem').value;
+                    const telefone = '5511994850356'
+
+                    const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+                    const msgFormatada = encodeURIComponent(texto)
+
+                    const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+                    window.open(url, '_blank')
+                    }
+
+                </script>
+
+
+                <div class="rodape">
+                    <p class="redes-titulo">redes</p>
+                    <div class="redes">
+                        <a target="_blank" href="https://github.com/Gabrielscruz-12" class="github"> <img src="imagens/redes/github.png" class="img-redes"></a>
+                        <a target="_blank" href="https://www.instagram.com/gcruz.12/" class="instagram"> <img src="imagens/redes/instagram.png" class="img-redes"></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/gabriel-da-silva-cruz" class="linkedin"> <img src="imagens/redes/linkedin.png" class="img-redes" ></a>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>
