@@ -28,7 +28,7 @@ Além disso, minha vivência como orientador socioeducativo fortaleceu minhas ha
 - Git e GitHub
 - VS Code
 - Figma (interpretação de layout)
-- Linux (Linux Mint, Linux Ubuntu)
+- Linux (Mint, Ubuntu)
 
 ---
 
